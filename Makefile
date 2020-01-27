@@ -70,8 +70,8 @@ ci-tests:
 # Running snakemake on test datasets with singularity flag raised on
 singularity-tests:
 	${CONDA_ACTIVATE} ${ENV_NAME} && \
-	${PYTHON} ${TEST_DESIGN} ${VCF_PATH} -o ${PWD}/tests/design.tsv --debug && \
-	${PYTHON} ${TEST_CONFIG} ${TRANSCRIPT_PATH} ${GWASCAT_PATH} ${GENESETS_PATH} ${DBNSFP_PATH} --snpeff-extra ${SNPEFF_ARGS} --workdir ${PWD}/tests --debug && \
+	${PYTHON} ${TEST_DESIGN} ${PWD}/${NORMAL_PATH} ${PWD}/${TUMOR_PATH} -o ${PWD}/tests/design.tsv --debug --index && \
+	${PYTHON} ${TEST_CONFIG} ${PWD}/${FASTA} --workdir ${PWD}/tests --debug  && \
 	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --forceall --printshellcmds --reason --directory ${PWD}/tests --use-singularity && \
 	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --directory ${PWD}/tests --report
 .PHONY: singularity-tests
