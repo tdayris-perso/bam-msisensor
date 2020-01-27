@@ -9,4 +9,4 @@ See [wiki] for more information.
 
 # Rule Graph
 
-![workflow](wworkflow.png)
+![workflow](workflow.png)
