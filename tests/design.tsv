@@ -1,0 +1,2 @@
+Normal_Bam	Normal_Index	Sample_id	Tumor_Bam	Tumor_Index
+/home/tdayris/Documents/Developpement/tdayris-perso/bam-msisensor/tests/normal_data/example.normal.bam	/home/tdayris/Documents/Developpement/tdayris-perso/bam-msisensor/tests/normal_data/example.normal.bam.bai	example.	/home/tdayris/Documents/Developpement/tdayris-perso/bam-msisensor/tests/tumor_data/example.tumor.bam	/home/tdayris/Documents/Developpement/tdayris-perso/bam-msisensor/tests/tumor_data/example.tumor.bam.bai

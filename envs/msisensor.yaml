@@ -1,0 +1,8 @@
+---
+name: msisensor
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - bioconda::msisensor=0.5

@@ -1,0 +1,25 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+description: An entry in the sample sheet
+
+proprerties:
+  Sample_id:
+    type: string
+    description: The sample unique identifier
+  Normal_Bam:
+    type: string
+    description: Path to the normal bam file
+  Tumor_Bam:
+    type: string
+    description: Path to the tumor bam file
+  Normal_Index:
+    type: string
+    description: Path to the normal bam-index file
+  Tumor_Index:
+    type: string
+    description: Path to the tumor bam-index file
+
+required:
+  - Sample_id
+  - Normal_Bam
+  - Tumor_Bam
