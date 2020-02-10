@@ -120,7 +120,7 @@ def classify_bam(normal_bam_files: List[Path],
                  tumor_index_files: Optional[List[Path]] = None) \
                  -> Dict[str, Path]:
     """
-    Return a dictionnary with identified fastq files (paried or not)
+    Return a dictionary with identified fastq files (paried or not)
 
     Parameters:
         normal_bam_files    List[Path]   List of path to normal mapping files
@@ -129,7 +129,7 @@ def classify_bam(normal_bam_files: List[Path],
         tumor_index_files   List[Path]   List of path to tumor indexes files
 
     Return:
-        Dict[str, Path] A dictionnary: for each Sample ID, the ID
+        Dict[str, Path] A dictionary: for each Sample ID, the ID
                         is repeated alongside with the upstream
                         /downstream fastq files.
 
@@ -340,7 +340,7 @@ def main(args: argparse.ArgumentParser) -> None:
     nbam = sorted(list(search_bam(Path(args.normal_bam), recursive=args.recursive)))
     tbam = sorted(list(search_bam(Path(args.tumor_bam), recursive=args.recursive)))
 
-    logger.debug("Head of alphabeticaly sorted list of bam files:")
+    logger.debug("Head of alphabetically sorted list of bam files:")
     logger.debug([str(i) for i in nbam[0:5]])
     logger.debug([str(i) for i in tbam[0:5]])
 

@@ -8,7 +8,7 @@ this pipeline.
 """
 
 import argparse    # Argument parsing
-import logging     # Logging behaviour
+import logging     # Logging behavior
 
 
 # Building custom class for help formatter
@@ -26,7 +26,7 @@ class CustomFormatter(argparse.RawDescriptionHelpFormatter,
 def setup_logging(logger: str,
                   args: argparse.ArgumentParser = None) -> logging.Logger:
     """
-    Configure logging behaviour
+    Configure logging behavior
     """
     logger = logging.getLogger(logger)
     root = logging.getLogger("")

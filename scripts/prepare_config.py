@@ -3,7 +3,7 @@
 
 """
 This script aims to prepare the configuration file used
-by the bam-msisensot pipeline
+by the bam-msisensor pipeline
 
 It goes through the arguments passed in command line and
 builds a yaml formatted text file used as a configuration
@@ -252,15 +252,15 @@ def test_args_to_dict() -> None:
 # Yaml formatting
 def dict_to_yaml(indict: Dict[str, Any]) -> str:
     """
-    This function makes the dictionnary to yaml formatted text
+    This function makes the dictionary to yaml formatted text
 
     Parameters:
-        indict  Dict[str, Any]  The dictionnary containing the pipeline
+        indict  Dict[str, Any]  The dictionary containing the pipeline
                                 parameters, extracted from command line
 
     Return:
                 str             The yaml formatted string, directly built
-                                from the input dictionnary
+                                from the input dictionary
 
     Examples:
     >>> import yaml
@@ -316,7 +316,7 @@ def main(args: argparse.ArgumentParser) -> None:
         config_yaml.write(dict_to_yaml(config_params))
 
 
-# Running programm if not imported
+# Running program if not imported
 if __name__ == '__main__':
     # Parsing command line
     args = parse_args()
