@@ -34,7 +34,7 @@ rule msi:
     input:
         unpack(get_bam_pair_w),
         unpack(get_bam_index_pairs_w),
-        index = "msisensor/scan/homopolymers_micosats.msi"
+        microsat = "msisensor/scan/homopolymers_micosats.msi"
     output:
         msi_scores = report(
             "msisensor/msi/{sample}",
@@ -74,9 +74,5 @@ rule msi:
     params:
         extra = config["params"].get("msi_extra", ""),
         prefix = (lambda w: f"msisensor/msi/{w.sample}")
-    conda:
-        "../envs/msisensor.yaml"
-    script:
-        "../scripts/msisensor_msi.py"
-    # wrapper:
-    #     f"{swv}/bio/msisensor/msi"
+    wrapper:
+        f"{swv}/bio/msisensor/msi"
