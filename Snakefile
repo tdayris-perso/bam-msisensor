@@ -2,12 +2,12 @@ import snakemake.utils  # Load snakemake API
 import os               # Operating system operations
 import sys              # System related operations
 
-# Python 3.7 is required
-if sys.version_info < (3, 7):
-    raise SystemError("Please use Python 3.7 or later.")
+# Python 3.8 is required
+if sys.version_info < (3, 8):
+    raise SystemError("Please use Python 3.8 or later.")
 
-# Snakemake 5.8.0 at least is required
-snakemake.utils.min_version("5.8.0")
+# Snakemake 5.14.0 at least is required
+snakemake.utils.min_version("5.14.0")
 
 include: "rules/common.smk"
 include: "rules/copy.smk"

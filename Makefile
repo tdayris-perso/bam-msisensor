@@ -10,7 +10,7 @@ MAKEFLAGS += --no-builtin-rules
 PYTEST           = pytest
 BASH             = bash
 CONDA            = conda
-PYTHON           = python3.7
+PYTHON           = python3.8
 SNAKEMAKE        = snakemake
 CONDA_ACTIVATE   = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
 
@@ -31,7 +31,7 @@ FASTA            = tests/example.fa
 default: all-unit-tests
 
 # Environment building through conda
-conda-tests:
+conda-install:
 	${CONDA_ACTIVATE} base && \
 	${CONDA} env create --file ${ENV_YAML} --force && \
 	${CONDA} activate ${ENV_NAME}
@@ -59,22 +59,20 @@ design-tests:
 
 ### Continuous Integration Tests ###
 # Running snakemake on test datasets
-ci-tests:
+test-conda-report.html:
 	${CONDA_ACTIVATE} ${ENV_NAME} && \
 	${PYTHON} ${TEST_DESIGN} ${PWD}/${NORMAL_PATH} ${PWD}/${TUMOR_PATH} -o ${PWD}/tests/design.tsv --debug --index && \
 	${PYTHON} ${TEST_CONFIG} ${PWD}/${FASTA} --workdir ${PWD}/tests --debug  && \
 	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --forceall --printshellcmds --reason --directory ${PWD}/tests && \
-	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --directory ${PWD}/tests --report
-.PHONY: ci-tests
+	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --directory ${PWD}/tests --report test-conda-report.html
 
 # Running snakemake on test datasets with singularity flag raised on
-singularity-tests:
+test-singularity-report.html:
 	${CONDA_ACTIVATE} ${ENV_NAME} && \
 	${PYTHON} ${TEST_DESIGN} ${PWD}/${NORMAL_PATH} ${PWD}/${TUMOR_PATH} -o ${PWD}/tests/design.tsv --debug --index && \
 	${PYTHON} ${TEST_CONFIG} ${PWD}/${FASTA} --workdir ${PWD}/tests --debug  && \
 	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --forceall --printshellcmds --reason --directory ${PWD}/tests --use-singularity && \
-	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --directory ${PWD}/tests --report
-.PHONY: singularity-tests
+	${SNAKEMAKE} -s ${SNAKE_FILE} --use-conda -j ${SNAKE_THREADS} --directory ${PWD}/tests --report test-singularity-report.html
 
 # Cleaning Snakemake outputs
 clean:

@@ -1,7 +1,7 @@
 """
 This rule copies or soft links the bam files. It handles cold/hot storages
 issues on a cluster. More information at:
-https://github.com/tdayris-perso/snakemake-wrappers/blob/cp/bio/cp/
+https://github.com/tdayris/snakemake-wrappers/tree/Unofficial/bio/cp
 """
 rule copy_bams:
     input:
@@ -31,7 +31,7 @@ rule copy_bams:
             [" "]
         )
     wrapper:
-        f"{my_snw}/cp/bio/cp"
+        f"{my_snw}/bio/cp"
 
 
 rule copy_bam_indexes:
@@ -62,7 +62,7 @@ rule copy_bam_indexes:
             [" "]
         )
     wrapper:
-        f"{my_snw}/cp/bio/cp"
+        f"{my_snw}/bio/cp"
 
 
 rule copy_ref:
@@ -93,4 +93,4 @@ rule copy_ref:
             [" "]
         )
     wrapper:
-        f"{my_snw}/cp/bio/cp"
+        f"{my_snw}/bio/cp"

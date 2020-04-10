@@ -39,7 +39,8 @@ rule msi:
         msi_scores = report(
             "msisensor/msi/{sample}",
             caption="../report/msi.rst",
-            category="MSI"
+            category="MSI",
+            subcategory="Complete"
         ),
         read_count = report(
             "msisensor/msi/{sample}_dis",
@@ -49,12 +50,14 @@ rule msi:
         somatic_sites = report(
             "msisensor/msi/{sample}_somatic",
             caption="../report/somatic.rst",
-            category="Somatic"
+            subcategory="Somatic",
+            category="MSI"
         ),
         germline_sites = report(
             "msisensor/msi/{sample}_germline",
             caption="../report/germline.rst",
-            category="Germline"
+            subcategory="Germline",
+            category="MSI"
         )
     message:
         "Scanning {wildcards.sample} in search for MSI"

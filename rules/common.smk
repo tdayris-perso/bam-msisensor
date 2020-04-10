@@ -11,8 +11,8 @@ from snakemake.utils import validate
 
 from typing import Any, Dict
 
-my_snw = "https://raw.githubusercontent.com/tdayris-perso/snakemake-wrappers"
-swv = "0.50.3"
+my_snw = "https://raw.githubusercontent.com/tdayris/snakemake-wrappers/Unofficial"
+swv = "0.51.0"
 
 
 configfile: "config.yaml"
